@@ -3,6 +3,7 @@ package WWW::SEOmoz;
 use Moose;
 use LWP::UserAgent;
 use DateTime;
+use URI::Escape;
 use Digest::SHA qw( hmac_sha1 );
 
 has access_id => (
