@@ -17,11 +17,19 @@ has secret_key => (
     required => 1,
 );
 
+has api_url => (
+    is  => 'ro',
+    isa => 'Str',
+    lazy_build => 1,
+);
+
 has ua => (
     is  => 'ro',
     isa => 'LWP::UserAgent',
     lazy_build => 1,
 );
+
+my $API_BASE = 'http://lsapi.seomoz.com/';
 
 sub _build_ua {
     my $self = shift;
@@ -29,12 +37,20 @@ sub _build_ua {
     return LWP::UserAgent->new;
 }
 
+sub _build_api_url {
+    my $self = shift;
+
+    return $API_BASE . 'linkscape';
+}
+
 sub _generate_authentication {
     my $self = shift;
 
-    my $epoch = DateTime->now->add( seconds => 30 )->epoch;
-
-    return 'AccessID='.$self->access_id.'&Expires='.localtime
+    my $epoch = DateTime->now->add( seconds => 30 )->epoch; # A bit in the future
+    my $sig = uri_escape(hmac_sha1_base64(
+        $self->access_id . "\n" . $epoch, $self->secret_key
+    ));
+    return 'AccessID='.$self->access_id.'&Expires='.$epoch.'&Signature='.$sig;
 }
 
 1;
