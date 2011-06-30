@@ -4,6 +4,7 @@ use Moose;
 use LWP::UserAgent;
 use DateTime;
 use URI::Escape;
+use JSON;
 use Digest::SHA qw( hmac_sha1_base64 );
 
 has access_id => (
@@ -72,14 +73,37 @@ sub url_metrics {
         . 'url-metrics/'
         . uri_escape($url)
         . $self->_generate_authentication;
-
+    warn $api_call;
     my $res = $self->ua->get( $api_call );
 
-    warn pp $res->content;
+    use Data::Dump qw( pp );
+    warn pp from_json $res->content;
 
     if ( $res->is_success ) {
         return $res->content;
     }
+}
+
+sub links {
+    my $self = shift;
+    my ( $url ) = @_;
+
+    my $api_call = $self->api_url
+        . 'links/'
+        . uri_escape($url)
+        . $self->_generate_authentication
+        .'&SourceCols=4&TargetCols=4&Scope=page_to_page&Sort=page_authority&Limit=1';
+    warn $api_call;
+
+    my $res = $self->ua->get( $api_call );
+
+    use Data::Dump qw( pp );
+    warn pp from_json $res->content;
+
+    if ( $res->is_success ) {
+        return $res->content;
+    }
+
 }
 
 1;
