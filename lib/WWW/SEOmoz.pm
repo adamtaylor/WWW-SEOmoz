@@ -12,6 +12,7 @@ use Digest::SHA qw( hmac_sha1_base64 );
 use Data::Dump  qw( pp );
 
 use WWW::SEOmoz::URLMetrics;
+use WWW::SEOmoz::Links;
 
 has access_id => (
     is       => 'ro',
@@ -98,24 +99,27 @@ sub url_metrics {
         $self->_make_api_call( $api_url )
     );
 
-    warn pp $url_metrics;
-
     return $url_metrics;
 }
 
 sub links {
     my $self = shift;
     my $url  = shift || croak 'URL required';
+    my $limit = shift || 30;
 
     my $api_url = $self->api_url
         . 'links/'
         . uri_escape($url)
         . $self->_generate_authentication
-        .'&SourceCols=4&TargetCols=4&Scope=page_to_page&Sort=page_authority&Limit=1';
+        . '&SourceCols=4'
+        . '&TargetCols=4'
+        . '&Scope=page_to_page'
+        . '&Sort=page_authority'
+        . '&Limit=20';
 
-    my $data = $self->_make_api_call( $api_url );
-
-    warn pp $data;
+    return WWW::SEOmoz::Links->new_from_data(
+        $self->_make_api_call( $api_url )
+    );
 
 }
 
