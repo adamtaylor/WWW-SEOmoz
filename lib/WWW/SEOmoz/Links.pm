@@ -8,6 +8,8 @@ use Carp qw( croak );
 
 use WWW::SEOmoz::Link;
 
+our $VERSION = 0.01;
+
 =head1 DESCRIPTION
 
 Class to hold the links returned from the 'links' method in the SEOmoz API.

@@ -6,6 +6,8 @@ use namespace::autoclean;
 
 use Carp qw( croak );
 
+our $VERSION = 0.01;
+
 =head1 DESCRIPTION
 
 Class to represent an individual link returned from the 'links' method in the
