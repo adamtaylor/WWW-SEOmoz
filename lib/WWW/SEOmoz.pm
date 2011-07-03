@@ -1,4 +1,30 @@
+# ABSTRACT: Perl wrapper for the SEOmoz API
 package WWW::SEOmoz;
+
+=head1 SYNOPSIS
+
+    use WWW::SEOmoz;
+
+    my $seomoz = WWW::SEOmoz->new({ access_id => 'foo', secret_key => 'bar' });
+    my $url_metrics = $seomoz->url_metrics( 'www.seomoz.org' );
+    my $links = $seomoa->links( 'wwww.seomoz.org', 100 );
+
+=head1 DESCRIPTION
+
+WWW::SEOmoz is a simple Perl wrapper for the SEOmoz API. It currently supports the
+URL Metrics and Link methods of the API. Patches welcome if you'd like more of the
+API supported.
+
+=head1 METHODS
+
+=head2 new
+
+    my $seomoz = WWW::SEOmoz->new({ access_id => 'foo', secret_key => 'bar });
+
+Returns a new L<WWW::SEOmoz> object. The access id and secret key can be obtained
+by signing up for an API account.
+
+=cut
 
 use Moose;
 use namespace::autoclean;
@@ -9,7 +35,6 @@ use URI::Escape;
 use JSON;
 use Carp        qw( croak );
 use Digest::SHA qw( hmac_sha1_base64 );
-use Data::Dump  qw( pp );
 
 use WWW::SEOmoz::URLMetrics;
 use WWW::SEOmoz::Links;
@@ -86,6 +111,17 @@ sub _make_api_call {
 
 }
 
+=head2 url_metrics
+
+    my $url_metrics = $seomoz->url_metrics( 'www.seomoz.org' );
+
+Returns a L<WWW::SEOmoz::URLMetrics> object, which encapsulates the data returned
+from the API for the URL passed in.
+
+Note that the API seems to prefer URLs with the URL protocol ('http://') removed.
+
+=cut
+
 sub url_metrics {
     my $self = shift;
     my $url  = shift || croak 'URL required';
@@ -101,6 +137,24 @@ sub url_metrics {
 
     return $url_metrics;
 }
+
+=head2 links
+
+    my $links = $seomoz->links( 'www.seomoz.org', 30 );
+    warn $links->all_links;
+
+Returns a L<WWW::SEOmoz::Links> object, which encapsulates information about the
+links pointing to a domain.
+
+The second paramater is a limit to the number of results returned; if not provided
+it will default to thirty.
+
+Note that the API seems to prefer URLs with the URL protocol ('http://') removed.
+
+Also, this method call is likely to change in the future to make it more flexible
+and allow it to support this part of the API properly.
+
+=cut
 
 sub links {
     my $self = shift;
@@ -122,5 +176,12 @@ sub links {
     );
 
 }
+
+=head1 SEE ALSO
+
+L<http://www.seomoz.org/api>
+L<http://apiwiki.seomoz.org/>
+
+=cut
 
 1;
