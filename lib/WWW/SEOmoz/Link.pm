@@ -1,3 +1,4 @@
+# ABSTRACT: Class to represent a link returned from the SEOmoz API.
 package WWW::SEOmoz::Link;
 
 use Moose;
@@ -5,11 +6,26 @@ use namespace::autoclean;
 
 use Carp qw( croak );
 
+=head1 DESCRIPTION
+
+Class to represent an individual link returned from the 'links' method in the
+SEOmoz API.
+
+=head1 ATTRIBUTES
+
+=head2 target_url
+
+=cut
+
 has 'target_url' => (
     isa         => 'Str',
     is          => 'ro',
     required    => 1,
 );
+
+=head2 source_url
+
+=cut
 
 has 'source_url' => (
     isa         => 'Str',
@@ -17,17 +33,29 @@ has 'source_url' => (
     required    => 1,
 );
 
+=head2 link_id
+
+=cut
+
 has 'link_id' => (
     isa         => 'Int',
     is          => 'ro',
     required    => 1,
 );
 
+=head2 source_url_id
+
+=cut
+
 has 'source_url_id' => (
     isa         => 'Int',
     is          => 'ro',
     required    => 1,
 );
+
+=head2 target_url_id
+
+=cut
 
 has 'target_url_id' => (
     isa         => 'Int',
@@ -36,6 +64,16 @@ has 'target_url_id' => (
 );
 
 __PACKAGE__->meta->make_immutable;
+
+=head1 METHODS
+
+=head2 new_from_data
+
+    my $link = WWW::SEOmoz::Link->( $data );
+
+Returns a new L<WWW::SEOmoz::Link> object from the data returned from the API call.
+
+=cut
 
 sub new_from_data {
     my $class = shift;
@@ -49,5 +87,12 @@ sub new_from_data {
         target_url_id   => $data->{ltgt},
     });
 }
+
+=head1 SEE ALSO
+
+L<WWW::SEOmoz>
+L<WWW::SEOmoz::Links>
+
+=cut
 
 1;
