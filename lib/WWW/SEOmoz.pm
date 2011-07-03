@@ -7,7 +7,7 @@ package WWW::SEOmoz;
 
     my $seomoz = WWW::SEOmoz->new({ access_id => 'foo', secret_key => 'bar' });
     my $url_metrics = $seomoz->url_metrics( 'www.seomoz.org' );
-    my $links = $seomoa->links( 'wwww.seomoz.org', 100 );
+    my $links = $seomoz->links( 'wwww.seomoz.org', 100 );
 
 =head1 DESCRIPTION
 
