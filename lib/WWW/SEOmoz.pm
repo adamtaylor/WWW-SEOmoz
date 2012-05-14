@@ -39,7 +39,7 @@ use Digest::SHA qw( hmac_sha1_base64 );
 use WWW::SEOmoz::URLMetrics;
 use WWW::SEOmoz::Links;
 
-our $VERSION = 0.01;
+# VERSION
 
 has access_id => (
     is       => 'ro',

@@ -8,7 +8,7 @@ use Carp qw( croak );
 
 use WWW::SEOmoz::Link;
 
-our $VERSION = 0.01;
+# VERSION
 
 =head1 DESCRIPTION
 
