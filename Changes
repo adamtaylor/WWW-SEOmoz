@@ -1,5 +1,7 @@
 {{$NEXT}}
 
+- Fixed a bug where the mozrank and mozrank_raw was mixed up
+
 0.01      2011-07-03 13:59:58 Europe/London
 
 - Initial release of SEOmoz API wrapper
