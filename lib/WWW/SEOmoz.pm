@@ -72,7 +72,9 @@ my $API_BASE = 'http://lsapi.seomoz.com/';
 sub _build_ua {
     my $self = shift;
 
-    return LWP::UserAgent->new;
+    my $ua = LWP::UserAgent->new;
+    $ua->env_proxy;
+    return $ua;
 }
 
 sub _build_api_url {
