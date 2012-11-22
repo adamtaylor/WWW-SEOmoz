@@ -126,6 +126,7 @@ Note that the API seems to prefer URLs with the URL protocol ('http://') removed
 
 =cut
 
+# XXX should allow people to request the metrics they want
 sub url_metrics {
     my $self = shift;
     my $url  = shift || croak 'URL required';
@@ -133,7 +134,8 @@ sub url_metrics {
     my $api_url = $self->api_url
         . 'url-metrics/'
         . uri_escape($url)
-        . $self->_generate_authentication;
+        . $self->_generate_authentication
+        . "&Cols=103616137253"; # MAGIC - see the API docs (http://apiwiki.seomoz.org/url-metrics)
 
     my $url_metrics = WWW::SEOmoz::URLMetrics->new_from_data(
         $self->_make_api_call( $api_url )
