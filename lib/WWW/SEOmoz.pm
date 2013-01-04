@@ -135,7 +135,7 @@ sub url_metrics {
         . 'url-metrics/'
         . uri_escape($url)
         . $self->_generate_authentication
-        . "&Cols=103616137253"; # MAGIC - see the API docs (http://apiwiki.seomoz.org/url-metrics)
+        . "&Cols=133712314365"; # MAGIC - see the API docs (http://apiwiki.seomoz.org/url-metrics) (ALL COLUMNS)
 
     my $url_metrics = WWW::SEOmoz::URLMetrics->new_from_data(
         $self->_make_api_call( $api_url )
