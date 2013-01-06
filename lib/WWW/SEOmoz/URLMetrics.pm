@@ -125,6 +125,274 @@ has 'domain_authority' => (
     required => 1,
 );
 
+=head2 subdomain
+
+=cut
+
+has 'subdomain' => (
+    isa     => 'Str',
+    is      => 'ro',
+);
+
+=head2 rootdomain
+
+=cut
+
+has 'rootdomain' => (
+    isa     => 'Str',
+    is      => 'ro',
+);
+
+=head2 subdomain_external_links
+
+=cut
+
+has 'subdomain_external_links' => (
+    isa     => 'Num',
+    is      => 'ro',
+);
+
+=head2 rootdomain_external_links
+
+=cut
+
+has 'rootdomain_external_links' => (
+    isa     => 'Num',
+    is      => 'ro',
+);
+
+=head2 juicepassing_links
+
+=cut
+
+has 'juicepassing_links' => (
+    isa     => 'Num',
+    is      => 'ro',
+);
+
+=head2 subdomain_linking
+
+=cut
+
+has 'subdomain_linking' => (
+    isa     => 'Num',
+    is      => 'ro',
+);
+
+=head2 rootdomain_linking
+
+=cut
+
+has 'rootdomain_linking' => (
+    isa     => 'Num',
+    is      => 'ro',
+);
+
+=head2 subdomain_subdomains_linking
+
+=cut
+
+has 'subdomain_subdomains_linking' => (
+    isa     => 'Num',
+    is      => 'ro',
+);
+
+=head2 rootdomain_rootdomains_linking
+
+=cut
+
+has 'rootdomain_rootdomains_linking' => (
+    isa     => 'Num',
+    is      => 'ro',
+);
+
+=head2 rootdomain_mozrank
+
+=cut
+
+has 'rootdomain_mozrank' => (
+    isa     => 'Num',
+    is      => 'ro',
+);
+
+=head2 rootdomain_mozrank_raw
+
+=cut
+
+has 'rootdomain_mozrank_raw' => (
+    isa     => 'Num',
+    is      => 'ro',
+);
+
+=head2 moztrust
+
+=cut
+
+has 'moztrust' => (
+    isa     => 'Num',
+    is      => 'ro',
+);
+
+=head2 moztrust_raw
+
+=cut
+
+has 'moztrust_raw' => (
+    isa     => 'Num',
+    is      => 'ro',
+);
+
+=head2 subdomain_moztrust
+
+=cut
+
+has 'subdomain_moztrust' => (
+    isa     => 'Num',
+    is      => 'ro',
+);
+
+=head2 subdomain_moztrust_raw
+
+=cut
+
+has 'subdomain_moztrust_raw' => (
+    isa     => 'Num',
+    is      => 'ro',
+);
+
+=head2 rootdomain_moztrust
+
+=cut
+
+has 'rootdomain_moztrust' => (
+    isa     => 'Num',
+    is      => 'ro',
+);
+
+=head2 rootdomain_moztrust_raw
+
+=cut
+
+has 'rootdomain_moztrust_raw' => (
+    isa     => 'Num',
+    is      => 'ro',
+);
+
+=head2 external_mozrank
+
+=cut
+
+has 'external_mozrank' => (
+    isa     => 'Num',
+    is      => 'ro',
+);
+
+=head2 external_mozrank_raw
+
+=cut
+
+has 'external_mozrank_raw' => (
+    isa     => 'Num',
+    is      => 'ro',
+);
+
+=head2 subdomain_external_juice
+
+=cut
+
+has 'subdomain_external_juice' => (
+    isa     => 'Num',
+    is      => 'ro',
+);
+
+=head2 subdomain_external_juice_raw
+
+=cut
+
+has 'subdomain_external_juice_raw' => (
+    isa     => 'Num',
+    is      => 'ro',
+);
+
+=head2 rootdomain_external_juice
+
+=cut
+
+has 'rootdomain_external_juice' => (
+    isa     => 'Num',
+    is      => 'ro',
+);
+
+=head2 rootdomain_external_juice_raw
+
+=cut
+has 'rootdomain_external_juice_raw' => (
+    isa     => 'Num',
+    is      => 'ro',
+);
+
+=head2 subdomain_juice
+
+=cut
+
+has 'subdomain_juice' => (
+    isa     => 'Num',
+    is      => 'ro',
+);
+
+=head2 subdomain_juice_raw
+
+=cut
+
+has 'subdomain_juice_raw' => (
+    isa     => 'Num',
+    is      => 'ro',
+);
+
+=head2 rootdomain_juice
+
+=cut
+
+has 'rootdomain_juice' => (
+    isa     => 'Num',
+    is      => 'ro',
+);
+
+=head2 rootdomain_juice_raw
+
+=cut
+
+has 'rootdomain_juice_raw' => (
+    isa     => 'Num',
+    is      => 'ro',
+);
+
+=head2 links_subdomain
+
+=cut
+
+has 'links_subdomain' => (
+    isa     => 'Num',
+    is      => 'ro',
+);
+
+=head2 links_rootdomain
+
+=cut
+
+has 'links_rootdomain' => (
+    isa     => 'Num',
+    is      => 'ro',
+);
+
+=head2 rootdomains_links_subdomain
+
+=cut
+
+has 'rootdomains_links_subdomain' => (
+    isa     => 'Num',
+    is      => 'ro',
+);
 __PACKAGE__->meta->make_immutable;
 
 =head1 METHODS
@@ -154,6 +422,38 @@ sub new_from_data {
         http_status_code        => $data->{us},
         page_authority          => $data->{upa},
         domain_authority        => $data->{pda},
+
+        ## NON-FREE API VALUES
+        subdomain                       => $data->{ufq},
+        rootdomain                      => $data->{upl},
+        subdomain_external_links        => $data->{feid},
+        rootdomain_external_links       =>$data->{peid},
+        juicepassing_links              => $data->{ujid},
+        subdomain_linking               => $data->{uifq},
+        rootdomain_linking              => $data->{uipl},
+        subdomain_subdomains_linking    =>$data->{fid},
+        rootdomain_rootdomains_linking  =>$data->{pid},
+        rootdomain_mozrank              => $data->{pmrp},
+        rootdomain_mozrank_raw          => $data->{pmrr},
+        moztrust                        => $data->{utrp},
+        moztrust_raw                    => $data->{utrr},
+        subdomain_moztrust              => $data->{ftrp},
+        subdomain_moztrust_raw          => $data->{ftrr},
+        rootdomain_moztrust             => $data->{ptrp},
+        rootdomain_moztrust_raw         => $data->{ptrr},
+        external_mozrank                => $data->{uemrp},
+        external_mozrank_raw            => $data->{uemrr},
+        subdomain_external_juice        => $data->{uemrp},
+        subdomain_external_juice_raw    => $data->{uemrr},
+        rootdomain_external_juice       => $data->{pejp},
+        rootdomain_external_juice_raw   => $data->{pejr},
+        subdomain_juice                 => $data->{fjp},
+        subdomain_juice_raw             => $data->{fjr},
+        rootdomain_juice                => $data->{pjp},
+        rootdomain_juice_raw            => $data->{pjr},
+        links_subdomain                 => $data->{fuid},
+        links_rootdomain                => $data->{puid},
+        rootdomains_links_subdomain     => $data->{fipl},
     });
 }
 
