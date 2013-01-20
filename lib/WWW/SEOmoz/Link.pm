@@ -20,9 +20,8 @@ SEOmoz API.
 =cut
 
 has 'target_url' => (
-    isa         => 'Str',
+    isa         => 'Str|Undef',
     is          => 'ro',
-    required    => 1,
 );
 
 =head2 source_url
@@ -30,9 +29,8 @@ has 'target_url' => (
 =cut
 
 has 'source_url' => (
-    isa         => 'Str',
+    isa         => 'Str|Undef',
     is          => 'ro',
-    required    => 1,
 );
 
 =head2 link_id
@@ -40,9 +38,8 @@ has 'source_url' => (
 =cut
 
 has 'link_id' => (
-    isa         => 'Int',
+    isa         => 'Int|Undef',
     is          => 'ro',
-    required    => 1,
 );
 
 =head2 source_url_id
@@ -50,9 +47,8 @@ has 'link_id' => (
 =cut
 
 has 'source_url_id' => (
-    isa         => 'Int',
+    isa         => 'Int|Undef',
     is          => 'ro',
-    required    => 1,
 );
 
 =head2 target_url_id
@@ -60,9 +56,8 @@ has 'source_url_id' => (
 =cut
 
 has 'target_url_id' => (
-    isa         => 'Int',
+    isa         => 'Int|Undef',
     is          => 'ro',
-    required    => 1,
 );
 
 __PACKAGE__->meta->make_immutable;

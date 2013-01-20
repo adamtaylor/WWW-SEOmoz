@@ -20,9 +20,8 @@ in the SEOmoz API.
 =cut
 
 has 'title' => (
-    isa      => 'Str',
+    isa      => 'Str|Undef',
     is       => 'ro',
-    required => 1,
 );
 
 =head2 url
@@ -30,9 +29,8 @@ has 'title' => (
 =cut
 
 has 'url' => (
-    isa      => 'Str',
+    isa      => 'Str|Undef',
     is       => 'ro',
-    required => 1,
 );
 
 =head2 external_links
@@ -40,9 +38,8 @@ has 'url' => (
 =cut
 
 has 'external_links' => (
-    isa      => 'Num',
+    isa      => 'Num|Undef',
     is       => 'ro',
-    required => 1,
 );
 
 =head2 links
@@ -50,9 +47,8 @@ has 'external_links' => (
 =cut
 
 has 'links' => (
-    isa      => 'Num',
+    isa      => 'Num|Undef',
     is       => 'ro',
-    required => 1,
 );
 
 =head2 mozrank
@@ -60,9 +56,8 @@ has 'links' => (
 =cut
 
 has 'mozrank' => (
-    isa      => 'Num',
+    isa      => 'Num|Undef',
     is       => 'ro',
-    required => 1,
 );
 
 =head2 mozrank_raw
@@ -70,9 +65,8 @@ has 'mozrank' => (
 =cut
 
 has 'mozrank_raw' => (
-    isa      => 'Num',
+    isa      => 'Num|Undef',
     is       => 'ro',
-    required => 1,
 );
 
 =head2 subdomain_mozrank
@@ -80,9 +74,8 @@ has 'mozrank_raw' => (
 =cut
 
 has 'subdomain_mozrank' => (
-    isa      => 'Num',
+    isa      => 'Num|Undef',
     is       => 'ro',
-    required => 1,
 );
 
 =head2 subdomain_mozrank_raw
@@ -90,9 +83,8 @@ has 'subdomain_mozrank' => (
 =cut
 
 has 'subdomain_mozrank_raw' => (
-    isa      => 'Num',
+    isa      => 'Num|Undef',
     is       => 'ro',
-    required => 1,
 );
 
 =head2 http_status_code
@@ -100,9 +92,8 @@ has 'subdomain_mozrank_raw' => (
 =cut
 
 has 'http_status_code' => (
-    isa      => 'Int',
+    isa      => 'Int|Undef',
     is       => 'ro',
-    required => 1,
 );
 
 =head2 page_authority
@@ -110,9 +101,8 @@ has 'http_status_code' => (
 =cut
 
 has 'page_authority' => (
-    isa      => 'Num',
+    isa      => 'Num|Undef',
     is       => 'ro',
-    required => 1,
 );
 
 =head2 domain_authority
@@ -120,9 +110,8 @@ has 'page_authority' => (
 =cut
 
 has 'domain_authority' => (
-    isa      => 'Num',
+    isa      => 'Num|Undef',
     is       => 'ro',
-    required => 1,
 );
 
 =head2 subdomain
@@ -130,7 +119,7 @@ has 'domain_authority' => (
 =cut
 
 has 'subdomain' => (
-    isa     => 'Str',
+    isa     => 'Str|Undef',
     is      => 'ro',
 );
 
@@ -139,7 +128,7 @@ has 'subdomain' => (
 =cut
 
 has 'rootdomain' => (
-    isa     => 'Str',
+    isa     => 'Str|Undef',
     is      => 'ro',
 );
 
@@ -148,7 +137,7 @@ has 'rootdomain' => (
 =cut
 
 has 'subdomain_external_links' => (
-    isa     => 'Num',
+    isa     => 'Num|Undef',
     is      => 'ro',
 );
 
@@ -157,7 +146,7 @@ has 'subdomain_external_links' => (
 =cut
 
 has 'rootdomain_external_links' => (
-    isa     => 'Num',
+    isa     => 'Num|Undef',
     is      => 'ro',
 );
 
@@ -166,7 +155,7 @@ has 'rootdomain_external_links' => (
 =cut
 
 has 'juicepassing_links' => (
-    isa     => 'Num',
+    isa     => 'Num|Undef',
     is      => 'ro',
 );
 
@@ -175,7 +164,7 @@ has 'juicepassing_links' => (
 =cut
 
 has 'subdomain_linking' => (
-    isa     => 'Num',
+    isa     => 'Num|Undef',
     is      => 'ro',
 );
 
@@ -184,7 +173,7 @@ has 'subdomain_linking' => (
 =cut
 
 has 'rootdomain_linking' => (
-    isa     => 'Num',
+    isa     => 'Num|Undef',
     is      => 'ro',
 );
 
@@ -193,7 +182,7 @@ has 'rootdomain_linking' => (
 =cut
 
 has 'subdomain_subdomains_linking' => (
-    isa     => 'Num',
+    isa     => 'Num|Undef',
     is      => 'ro',
 );
 
@@ -202,7 +191,7 @@ has 'subdomain_subdomains_linking' => (
 =cut
 
 has 'rootdomain_rootdomains_linking' => (
-    isa     => 'Num',
+    isa     => 'Num|Undef',
     is      => 'ro',
 );
 
@@ -211,7 +200,7 @@ has 'rootdomain_rootdomains_linking' => (
 =cut
 
 has 'rootdomain_mozrank' => (
-    isa     => 'Num',
+    isa     => 'Num|Undef',
     is      => 'ro',
 );
 
@@ -220,7 +209,7 @@ has 'rootdomain_mozrank' => (
 =cut
 
 has 'rootdomain_mozrank_raw' => (
-    isa     => 'Num',
+    isa     => 'Num|Undef',
     is      => 'ro',
 );
 
@@ -229,7 +218,7 @@ has 'rootdomain_mozrank_raw' => (
 =cut
 
 has 'moztrust' => (
-    isa     => 'Num',
+    isa     => 'Num|Undef',
     is      => 'ro',
 );
 
@@ -238,7 +227,7 @@ has 'moztrust' => (
 =cut
 
 has 'moztrust_raw' => (
-    isa     => 'Num',
+    isa     => 'Num|Undef',
     is      => 'ro',
 );
 
@@ -247,7 +236,7 @@ has 'moztrust_raw' => (
 =cut
 
 has 'subdomain_moztrust' => (
-    isa     => 'Num',
+    isa     => 'Num|Undef',
     is      => 'ro',
 );
 
@@ -256,7 +245,7 @@ has 'subdomain_moztrust' => (
 =cut
 
 has 'subdomain_moztrust_raw' => (
-    isa     => 'Num',
+    isa     => 'Num|Undef',
     is      => 'ro',
 );
 
@@ -265,7 +254,7 @@ has 'subdomain_moztrust_raw' => (
 =cut
 
 has 'rootdomain_moztrust' => (
-    isa     => 'Num',
+    isa     => 'Num|Undef',
     is      => 'ro',
 );
 
@@ -274,7 +263,7 @@ has 'rootdomain_moztrust' => (
 =cut
 
 has 'rootdomain_moztrust_raw' => (
-    isa     => 'Num',
+    isa     => 'Num|Undef',
     is      => 'ro',
 );
 
@@ -283,7 +272,7 @@ has 'rootdomain_moztrust_raw' => (
 =cut
 
 has 'external_mozrank' => (
-    isa     => 'Num',
+    isa     => 'Num|Undef',
     is      => 'ro',
 );
 
@@ -292,7 +281,7 @@ has 'external_mozrank' => (
 =cut
 
 has 'external_mozrank_raw' => (
-    isa     => 'Num',
+    isa     => 'Num|Undef',
     is      => 'ro',
 );
 
@@ -301,7 +290,7 @@ has 'external_mozrank_raw' => (
 =cut
 
 has 'subdomain_external_juice' => (
-    isa     => 'Num',
+    isa     => 'Num|Undef',
     is      => 'ro',
 );
 
@@ -310,7 +299,7 @@ has 'subdomain_external_juice' => (
 =cut
 
 has 'subdomain_external_juice_raw' => (
-    isa     => 'Num',
+    isa     => 'Num|Undef',
     is      => 'ro',
 );
 
@@ -319,7 +308,7 @@ has 'subdomain_external_juice_raw' => (
 =cut
 
 has 'rootdomain_external_juice' => (
-    isa     => 'Num',
+    isa     => 'Num|Undef',
     is      => 'ro',
 );
 
@@ -327,7 +316,7 @@ has 'rootdomain_external_juice' => (
 
 =cut
 has 'rootdomain_external_juice_raw' => (
-    isa     => 'Num',
+    isa     => 'Num|Undef',
     is      => 'ro',
 );
 
@@ -336,7 +325,7 @@ has 'rootdomain_external_juice_raw' => (
 =cut
 
 has 'subdomain_juice' => (
-    isa     => 'Num',
+    isa     => 'Num|Undef',
     is      => 'ro',
 );
 
@@ -345,7 +334,7 @@ has 'subdomain_juice' => (
 =cut
 
 has 'subdomain_juice_raw' => (
-    isa     => 'Num',
+    isa     => 'Num|Undef',
     is      => 'ro',
 );
 
@@ -354,7 +343,7 @@ has 'subdomain_juice_raw' => (
 =cut
 
 has 'rootdomain_juice' => (
-    isa     => 'Num',
+    isa     => 'Num|Undef',
     is      => 'ro',
 );
 
@@ -363,7 +352,7 @@ has 'rootdomain_juice' => (
 =cut
 
 has 'rootdomain_juice_raw' => (
-    isa     => 'Num',
+    isa     => 'Num|Undef',
     is      => 'ro',
 );
 
@@ -372,7 +361,7 @@ has 'rootdomain_juice_raw' => (
 =cut
 
 has 'links_subdomain' => (
-    isa     => 'Num',
+    isa     => 'Num|Undef',
     is      => 'ro',
 );
 
@@ -381,7 +370,7 @@ has 'links_subdomain' => (
 =cut
 
 has 'links_rootdomain' => (
-    isa     => 'Num',
+    isa     => 'Num|Undef',
     is      => 'ro',
 );
 
@@ -390,7 +379,7 @@ has 'links_rootdomain' => (
 =cut
 
 has 'rootdomains_links_subdomain' => (
-    isa     => 'Num',
+    isa     => 'Num|Undef',
     is      => 'ro',
 );
 __PACKAGE__->meta->make_immutable;
@@ -427,12 +416,12 @@ sub new_from_data {
         subdomain                       => $data->{ufq},
         rootdomain                      => $data->{upl},
         subdomain_external_links        => $data->{feid},
-        rootdomain_external_links       =>$data->{peid},
+        rootdomain_external_links       => $data->{peid},
         juicepassing_links              => $data->{ujid},
         subdomain_linking               => $data->{uifq},
         rootdomain_linking              => $data->{uipl},
-        subdomain_subdomains_linking    =>$data->{fid},
-        rootdomain_rootdomains_linking  =>$data->{pid},
+        subdomain_subdomains_linking    => $data->{fid},
+        rootdomain_rootdomains_linking  => $data->{pid},
         rootdomain_mozrank              => $data->{pmrp},
         rootdomain_mozrank_raw          => $data->{pmrr},
         moztrust                        => $data->{utrp},
