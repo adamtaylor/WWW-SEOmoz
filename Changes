@@ -1,5 +1,9 @@
 {{$NEXT}}
 
+- Loosen type constraints
+- Support non-free API attributes
+- Bug fix for url_metrics API call to continue returning data
+
 0.02      2012-05-14 23:52:42 Europe/London
 
 - Fixed a bug where the mozrank and mozrank_raw was mixed up
